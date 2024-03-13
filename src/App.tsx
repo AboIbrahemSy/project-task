@@ -2,6 +2,7 @@ import { useState,useEffect } from 'react'
 import abi from "./artifacts/contracts/chai.sol/chai.json"
 import {ethers} from "ethers"
 import Buy from './components/Buy'
+import Memos from './components/Memos'
 import './App.css'
 
 interface StateType{
@@ -69,7 +70,7 @@ function App() {
       <small>Connected Account - {account}</small>
     </p>
       <Buy state={state} />
-   
+      <Memos state={state} />
   </div>
   )
 }
