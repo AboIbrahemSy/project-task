@@ -68,9 +68,7 @@ function App() {
     <p style={{ marginTop: "10px", marginLeft: "5px" }}>
       <small>Connected Account - {account}</small>
     </p>
-   
-      <Buy />
-      {/* <Buy state={state} /> */}
+      <Buy state={state} />
    
   </div>
   )
