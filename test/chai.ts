@@ -1,13 +1,12 @@
 import {
   time,
   loadFixture,
-} from "@nomicfoundation/hardhat-toolbox/network-helpers.js";
-import { anyValue } from "@nomicfoundation/hardhat-chai-matchers/withArgs.js";
-import chai from "chai";
+} from "@nomicfoundation/hardhat-toolbox/network-helpers";
+import { anyValue } from "@nomicfoundation/hardhat-chai-matchers/withArgs";
+import { expect } from "chai";
+import { ethers } from "hardhat";
 
-const { expect } = chai;
-
-describe("chai", function () {
+describe("Lock", function () {
   // We define a fixture to reuse the same setup in every test.
   // We use loadFixture to run this setup once, snapshot that state,
   // and reset Hardhat Network to that snapshot in every test.
@@ -21,8 +20,8 @@ describe("chai", function () {
     // Contracts are deployed using the first signer/account by default
     const [owner, otherAccount] = await ethers.getSigners();
 
-    const Lock = await ethers.getContractFactory("chai");
-    const lock = await Lock.deploy();
+    const Lock = await ethers.getContractFactory("Lock");
+    const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
 
     return { lock, unlockTime, lockedAmount, owner, otherAccount };
   }
