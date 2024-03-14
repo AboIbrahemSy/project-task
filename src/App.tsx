@@ -1,16 +1,17 @@
 import { useState,useEffect } from 'react'
 import abi from "./artifacts/contracts/chai.sol/chai.json"
-import {ethers} from "ethers"
+// import {ethers} from "ethers"
 import Buy from './components/Buy'
 import Memos from './components/Memos'
 import './App.css'
 import { StateType } from './type.t'
+import  {ethersSimpleTestStarting}  from "ethers-simple-test";
 
-declare global {
-  interface Window {
-      ethereum: any
-  }
-}
+// declare global {
+//   interface Window {
+//       ethereum: any
+//   }
+// }
 
 
 function App() {
@@ -24,32 +25,39 @@ function App() {
   useEffect(()=>{
     const template=async()=>{
    
-      const contractAddres="0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9";
+      const contractAddres="0x5FbDB2315678afecb367f032d93F642f64180aa3";
       const contractABI=abi.abi;
       //Metamask part
       //1. In order do transactions on goerli testnet
       //2. Metmask consists of infura api which actually help in connectig to the blockhain
       try{
 
-        const {ethereum}=window;
-        const account = await ethereum.request({
-          method:"eth_requestAccounts"
-        })
- 
-        window.ethereum.on("accountsChanged",()=>{
-         window.location.reload()
-        })
+        // const {provider,signer,contract, account}:StateType = 
+        // ethersSimpleTestStarting
+        const {provider,signer,contract, account} = 
+        await ethersSimpleTestStarting({contractAddres:contractAddres,contractABI:contractABI})
+
+        setState({provider,signer,contract});
         setAccount(account);
-        const provider = new ethers.providers.Web3Provider(ethereum);//read the Blockchain
-        const signer =  provider.getSigner(); //write the blockchain
+      //   const {ethereum}=window;
+      //   const account = await ethereum.request({
+      //     method:"eth_requestAccounts"
+      //   })
+ 
+      //   window.ethereum.on("accountsChanged",()=>{
+      //    window.location.reload()
+      //   })
+      //   setAccount(account);
+      //   const provider = new ethers.providers.Web3Provider(ethereum);//read the Blockchain
+      //   const signer =  provider.getSigner(); //write the blockchain
         
-        const contract = new ethers.Contract(
-          contractAddres,
-          contractABI,
-          signer
-        )
-        console.log(contract)
-      setState({provider,signer,contract});
+      //   const contract = new ethers.Contract(
+      //     contractAddres,
+      //     contractABI,
+      //     signer
+      //   )
+      //   console.log(contract)
+      // setState({provider,signer,contract});
        
       }catch(error){
         console.log(error)

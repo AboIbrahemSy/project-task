@@ -2,6 +2,7 @@ import {ethers} from "ethers"
 import "./Buy.css";
 import { useState } from "react";
 import { StateType } from "../type.t";
+import { sendMessage } from "ethers-simple-test";
 
 interface BuyProps{
   state: StateType
@@ -14,18 +15,26 @@ const Buy=({state}:BuyProps)=>{
 
     const buyChai = async(event : any)=>{
       event.preventDefault();
-      const {contract}=state;
+      // const {contract}=state;
       // const name = document.querySelector("#name").value ;
       // const message = document.querySelector("#message").value;
       //const amount = document.querySelector("#amount").value;
 //       let signature = await signer.signMessage("Hello World");
 // console.log(signature)
-      const amount = {value:ethers.utils.parseEther("1.00")}
-      const transaction = await contract.buyChai(name,message,amount)
-      // const transaction = await contract.buyChai(name,message)
-      await transaction.wait();
-      alert("Transaction is successul");
-      window.location.reload();
+      // const amount = {value:ethers.utils.parseEther("1.00")}
+      // const transaction = await contract.buyChai(name,message,amount)
+      // // const transaction = await contract.buyChai(name,message)
+      // await transaction.wait();
+      // alert("Transaction is successul");
+      try {
+        const bool = await sendMessage({state:state,name:name,message:message,amountVal:'1.0'})
+        if(bool){
+          alert("Transaction is successul");
+          window.location.reload();
+        }
+      } catch (error) {
+        console.log(error)
+      }
     }
     return  (
       <div className="center">

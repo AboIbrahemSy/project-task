@@ -7,7 +7,7 @@ import chai from "chai";
 
 const { expect } = chai;
 
-describe("Lock", function () {
+describe("chai", function () {
   // We define a fixture to reuse the same setup in every test.
   // We use loadFixture to run this setup once, snapshot that state,
   // and reset Hardhat Network to that snapshot in every test.
@@ -21,8 +21,8 @@ describe("Lock", function () {
     // Contracts are deployed using the first signer/account by default
     const [owner, otherAccount] = await ethers.getSigners();
 
-    const Lock = await ethers.getContractFactory("Lock");
-    const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+    const Lock = await ethers.getContractFactory("chai");
+    const lock = await Lock.deploy();
 
     return { lock, unlockTime, lockedAmount, owner, otherAccount };
   }

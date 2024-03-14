@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react";
-import {  MemosType, StateType } from "../type.t";
+// import {  MemosType, StateType } from "../type.t";
+import { MemosType, StateType, memosMessage } from "ethers-simple-test";
 
 interface MemosProps{
   state: StateType
@@ -11,22 +12,25 @@ const Memos=({state}:MemosProps)=>{
     const [memos,setMemos]=useState<MemosType[]>([]);
     const {contract}=state;
     useEffect(()=>{
-        const memosMessage = async()=>{
-          console.log(await contract.getMemos())
-          const memos = await contract.getMemos();
-          setMemos(memos)
+      
+        const memosMessageFun = async()=>{
+          const _memos = await memosMessage({state})
+          setMemos(_memos)
+          // console.log(await contract.getMemos())
+          // const memos = await contract.getMemos();
+          // setMemos(memos)
           //console.log(memos)
         }
-        contract && memosMessage()
+        contract && memosMessageFun()
     },[contract])
     return (
         <div className="container-fluid">
           <h3 style={{ textAlign: "center", marginTop: "20px" }}>Messages</h3>           
                 <table>
                 <tbody >
-          {memos.map((memo) => {
+          {memos.map((memo,index) => {
             return (
-                    <tr >
+                    <tr key={index}>
                       <td 
                         style={{
                           backgroundColor: "dodgerblue",
