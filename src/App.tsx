@@ -4,25 +4,20 @@ import {ethers} from "ethers"
 import Buy from './components/Buy'
 import Memos from './components/Memos'
 import './App.css'
-
-interface StateType{
-    provider:any;
-    signer:any;
-    contract:any;
-}
+import { StateType } from './type.t'
 
 declare global {
   interface Window {
-      // ethereum: import('ethers').providers.ExternalProvider;
       ethereum: any
   }
 }
+
 
 function App() {
   const [state,setState]=useState<StateType>({
     provider:null,
     signer:null,
-    contract:null
+    contract:null as any
   })
   const [account,setAccount]=useState<string>('Not connected');
 

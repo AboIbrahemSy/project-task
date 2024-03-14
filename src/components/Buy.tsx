@@ -1,9 +1,10 @@
 import {ethers} from "ethers"
 import "./Buy.css";
 import { useState } from "react";
+import { StateType } from "../type.t";
 
 interface BuyProps{
-  state:any
+  state: StateType
 }
 
 const Buy=({state}:BuyProps)=>{

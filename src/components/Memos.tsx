@@ -1,18 +1,14 @@
 import { useState,useEffect } from "react";
+import {  MemosType, StateType } from "../type.t";
 
 interface MemosProps{
-  state:any
+  state: StateType
 }
 
-interface Memos{
-  name:string;
-  timestamp:number;
-  message:string;
-  from:string;
-}
+
 
 const Memos=({state}:MemosProps)=>{
-    const [memos,setMemos]=useState<Memos[]>([]);
+    const [memos,setMemos]=useState<MemosType[]>([]);
     const {contract}=state;
     useEffect(()=>{
         const memosMessage = async()=>{
