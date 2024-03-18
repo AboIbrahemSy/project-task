@@ -21,17 +21,17 @@ cp .env.example .env
 ```
 
 <p align="center">
-    <img src="/img/npx-hardhat-node.png">
+    <img src="/img/npx-hardhat-node.png" height="500">
 </p>
 
 ## Run hardhat deploy
 
 ```bash
- npx hardhat node
+npx hardhat run scripts/deploy.js --network localhost
 ```
 
 <p align="center">
-    <img src="/img/scripts-deploy.png">
+    <img src="/img/scripts-deploy.png"height="200">
 </p>
 
 
@@ -49,15 +49,15 @@ CONTRACT_ADDRES=0x********
 Create NetWork For Dev Mod
 
 <p align="center">
-    <img src="/img/addnetwork.png">
+    <img src="/img/addnetwork.png"height="500">
 </p>
 
 <p align="center">
-    <img src="/img/addmanually.png">
+    <img src="/img/addmanually.png"height="500">
 </p>
 
 <p align="center">
-    <img src="/img/networkdev.png">
+    <img src="/img/networkdev.png"height="500">
 </p>
 
 # step 2
@@ -65,7 +65,7 @@ Create NetWork For Dev Mod
 Import Account
 
 <p align="center">
-    <img src="/img/addaccount.png">
+    <img src="/img/addaccount.png"height="500">
 </p>
 
 
