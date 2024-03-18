@@ -2,33 +2,89 @@
 
 - [Demo](https://aboibrahemsy.github.io/project-task/)
 
-# React + TypeScript + Vite
+## Installation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+npm i
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Create .env File
+
+```bash
+cp .env.example .env
+```
+
+## Run hardhat server
+
+```bash
+ npx hardhat node
+```
+
+<p align="center">
+    <img src="/img/npx-hardhat-node.png">
+</p>
+
+## Run hardhat deploy
+
+```bash
+ npx hardhat node
+```
+
+<p align="center">
+    <img src="/img/scripts-deploy.png">
+</p>
+
+
+-- Copy The Address To `.env` File
+
+```.env
+CONTRACT_ADDRES=0x********
+```
+
+
+## In MetaMask
+
+# step 1
+
+Create NetWork For Dev Mod
+
+<p align="center">
+    <img src="/img/addnetwork.png">
+</p>
+
+<p align="center">
+    <img src="/img/addmanually.png">
+</p>
+
+<p align="center">
+    <img src="/img/networkdev.png">
+</p>
+
+# step 2
+
+Import Account
+
+<p align="center">
+    <img src="/img/addaccount.png">
+</p>
+
+
+After Use 
+
+Run hardhat server
+
+You Get 10 Account For use it in Dev Mod
+
+Import any Account
+
+
+## Run React Dev
+
+```bash
+ npm run dev
+```
+
+# Now Try Code
+
+
+

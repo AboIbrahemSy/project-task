@@ -7,6 +7,10 @@ import './App.css'
 import { StateType } from './type.t'
 import  {ethersSimpleTestStarting}  from "ethers-simple-test";
 
+require("dotenv").config()
+
+const CONTRACT_ADDRES = process.env.GOERLI_URL || '';
+
 // declare global {
 //   interface Window {
 //       ethereum: any
@@ -25,7 +29,7 @@ function App() {
   useEffect(()=>{
     const template=async()=>{
    
-      const contractAddres="0x5FbDB2315678afecb367f032d93F642f64180aa3";
+      const contractAddres=CONTRACT_ADDRES;
       const contractABI=abi.abi;
       //Metamask part
       //1. In order do transactions on goerli testnet
